@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Clean Standard – Spotless Homes, Vetted Cleaners</title>
+  <meta name="description" content="Professional house cleaning in San Francisco. Vetted cleaners, insured, satisfaction guaranteed. Book online today!"/>
+
+  <style>
+    :root {
+      --dark: #0f172a;
+      --primary: #1e40af;
+      --light: #f8fafc;
+      --accent: #60a5fa;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: white;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    header, .hero, section, footer {
+      padding: 1.5rem 5%;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+
+    /* ── Hero ── */
+    .hero {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 8rem 5% 6rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      opacity: 0.9;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0.5rem;
+      transition: 0.2s;
+    }
+    .btn:hover { background: #1e3a8a; }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid white;
+    }
+
+    /* ── Features / Why Choose ── */
+    .features {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .card {
+      background: rgba(255,255,255,0.07);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials {
+      background: var(--light);
+      padding: 5rem 5%;
+      text-align: center;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .quote {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .stars { color: #fbbf24; font-size: 1.4rem; margin-bottom: 1rem; }
+
+    /* ── Pricing ── */
+    .pricing {
+      padding: 5rem 5%;
+      background: white;
+      text-align: center;
+    }
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .plan {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .plan.popular {
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(30,64,175,0.15);
+      transform: translateY(-12px);
+    }
+    .plan-header {
+      background: var(--dark);
+      color: white;
+      padding: 2rem 1rem;
+    }
+    .plan-body { padding: 2rem; }
+    .price { font-size: 2.8rem; font-weight: 700; margin: 1rem 0; }
+
+    /* ── Form ── */
+    .quote-form {
+      background: var(--dark);
+      color: white;
+      padding: 5rem 5%;
+      text-align: center;
+    }
+    form {
+      max-width: 700px;
+      margin: 3rem auto 0;
+      display: grid;
+      gap: 1.4rem;
+      grid-template-columns: 1fr 1fr;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    form textarea { grid-column: 1 / -1; height: 140px; }
+    form button {
+      grid-column: 1 / -1;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1.2rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 5% 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      form { grid-template-columns: 1fr; }
+      .hero { padding: 6rem 5% 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <h1>Spotless Homes.<br>Vetted Cleaners.<br>Zero Hassle.</h1>
+    <p>Experience the new standard of home cleaning — top-tier professionals, rigorously vetted, fully insured, and 100% satisfaction guaranteed.</p>
+    <a href="#quote" class="btn">Get Your Free Quote</a>
+    <a href="#how" class="btn btn-outline">See How It Works</a>
+  </div>
+</header>
+
+<section class="features">
+  <div class="container">
+    <h2>Why Choose The Clean Standard?</h2>
+    <div class="features-grid">
+      <div class="card">
+        <h3>✦ Rigorous 5-step vetting</h3>
+        <p>Every cleaner is background-checked & interviewed</p>
+      </div>
+      <div class="card">
+        <h3>🛡️ Up to $1M insured & bonded</h3>
+        <p>Your home and belongings are protected</p>
+      </div>
+      <div class="card">
+        <h3>🌿 Eco-friendly supplies on request</h3>
+        <p>Healthier for your family & the planet</p>
+      </div>
+      <div class="card">
+        <h3>100% Satisfaction Guarantee</h3>
+        <p>Not happy? We re-clean for free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <h2>Loved by Hundreds of Homes</h2>
+    <p style="margin:1rem 0 3rem; opacity:0.8;">Don't just take our word for it. Here's what happy customers say.</p>
+
+    <div class="testimonial-grid">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"The easiest cleaning service I've ever booked. Team arrived on time, extremely professional, left my apartment looking brand new. Highly recommend the deep clean!"</p>
+        <p><strong>Sarah Jenkins</strong> – Downtown</p>
+      </div>
+
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Been using their bi-weekly service for 6 months. Consistent quality every time. It's a relief to come home to a spotless house on Fridays."</p>
+        <p><strong>Michael Chen</strong> – Westside</p>
+      </div>
+
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"Booked for move-out clean to get my deposit back. Landlord was amazed — they removed stains I thought were permanent. Worth every penny."</p>
+        <p><strong>Emma Roberts</strong> – North Hills</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing">
+  <div class="container">
+    <h2>Transparent Pricing</h2>
+    <p>Simple, upfront prices based on home size and cleaning depth. No hidden fees.</p>
+
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-header">
+          <h3>Standard Clean</h3>
+          <p>For regular maintenance</p>
+        </div>
+        <div class="plan-body">
+          <div class="price">From $120</div>
+          <ul style="list-style:none; text-align:left; margin:1.5rem 0;">
+            <li>✓ Dusting all surfaces</li>
+            <li>✓ Vacuum & mop floors</li>
+            <li>✓ Bathroom & kitchen sanitation</li>
+            <li>✓ Trash removal</li>
+          </ul>
+          <a href="#quote" class="btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="plan popular">
+        <div class="plan-header">
+          <h3>Deep Clean</h3>
+          <p>Most Popular • Thorough refresh</p>
+        </div>
+        <div class="plan-body">
+          <div class="price">From $250</div>
+          <ul style="list-style:none; text-align:left; margin:1.5rem 0;">
+            <li>✓ Everything in Standard</li>
+            <li>✓ Baseboards, doors, window sills</li>
+            <li>✓ Heavy bathroom scrub</li>
+            <li>✓ Inside fridge/oven</li>
+            <li>✓ Under furniture</li>
+          </ul>
+          <a href="#quote" class="btn">Book Now</a>
+        </div>
+      </div>
+
+      <div class="plan">
+        <div class="plan-header">
+          <h3>Move In / Move Out</h3>
+          <p>For empty homes</p>
+        </div>
+        <div class="plan-body">
+          <div class="price">From $300</div>
+          <ul style="list-style:none; text-align:left; margin:1.5rem 0;">
+            <li>✓ Everything in Deep Clean</li>
+            <li>✓ Inside cabinets & appliances</li>
+            <li>✓ Spot clean walls</li>
+            <li>✓ Closet wipe down</li>
+          </ul>
+          <a href="#quote" class="btn">Book Now</a>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:2rem; font-size:1.1rem;">Save 10–15% with recurring weekly/bi-weekly/monthly service!</p>
+  </div>
+</section>
+
+<section id="quote" class="quote-form">
+  <div class="container">
+    <h2>Get a Free Quote</h2>
+    <p>Fill out the form below — we'll respond within 2 hours with a custom quote.</p>
+
+    <form action="https://formsubmit.co/your@email.com" method="POST">  <!-- ← replace with your real email or form backend -->
+      <input type="text"    name="name"        placeholder="Full Name"        required>
+      <input type="tel"     name="phone"       placeholder="Phone Number"     required>
+      <input type="email"   name="email"       placeholder="Email Address"     required style="grid-column:1/-1;">
+      <select name="size" required>
+        <option value="">Select home size</option>
+        <option>Studio / 1 bed</option>
+        <option>2 bed / 2 bath</option>
+        <option>3+ bed</option>
+      </select>
+      <select name="type" required>
+        <option value="">Select type of clean</option>
+        <option>Standard</option>
+        <option>Deep Clean</option>
+        <option>Move In/Out</option>
+        <option>Recurring</option>
+      </select>
+      <input type="date" name="date" placeholder="Preferred Date" required style="grid-column:1/-1;">
+      <textarea name="notes" placeholder="Additional Notes (pets? special instructions?)"></textarea>
+      <button type="submit">Request My Free Quote</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><strong>The Clean Standard</strong><br>
+    123 Clean Street, Suite 100, San Francisco, CA 94105<br>
+    (555) 123-4567 • hello@thecleanstandard.com</p>
+
+    <p style="margin-top:2rem; font-size:0.9rem;">
+      © 2026 The Clean Standard Agency. All rights reserved.<br>
+      Privacy Policy • Terms of Service • Made with ❤️
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
