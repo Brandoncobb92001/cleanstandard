@@ -1,346 +1,477 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Clean Standard – Spotless Homes, Vetted Cleaners</title>
-  <meta name="description" content="Professional house cleaning in San Francisco. Vetted cleaners, insured, satisfaction guaranteed. Book online today!"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Clean Standard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--charcoal:#1a3a5c;--gold:#4aabdb;--gold-light:#72c3e8;--white:#fff;--gray:#f0f7fc;--text:#333;--subtext:#666}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--text)}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif}
 
-  <style>
-    :root {
-      --dark: #0f172a;
-      --primary: #1e40af;
-      --light: #f8fafc;
-      --accent: #60a5fa;
-    }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: white;
-      color: #1e293b;
-      line-height: 1.6;
-    }
-    header, .hero, section, footer {
-      padding: 1.5rem 5%;
-    }
-    .container { max-width: 1400px; margin: 0 auto; }
+/* NAV */
+nav{position:fixed;top:0;width:100%;background:#fff;z-index:1000;box-shadow:0 2px 12px rgba(0,0,0,.08);padding:0 5%}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Poppins',sans-serif;font-size:1.3rem;font-weight:800;text-decoration:none}
+.logo span:first-child{color:var(--charcoal)}
+.logo span:last-child{color:var(--gold)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--charcoal);font-weight:500;font-size:.95rem;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--charcoal);padding:.6rem 1.4rem;border-radius:6px;font-weight:700;text-decoration:none;font-size:.9rem;transition:background .2s}
+.nav-cta:hover{background:var(--gold-light)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);transition:.3s}
+.mobile-menu{display:none;flex-direction:column;background:#fff;padding:1.5rem 5%;gap:1rem;border-top:1px solid #eee}
+.mobile-menu a{text-decoration:none;color:var(--charcoal);font-weight:500;font-size:1rem}
+.mobile-menu .nav-cta{text-align:center;padding:.8rem}
+.mobile-menu.open{display:flex}
 
-    /* ── Hero ── */
-    .hero {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 8rem 5% 6rem;
-    }
-    .hero h1 {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.4rem;
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-      opacity: 0.9;
-    }
-    .btn {
-      display: inline-block;
-      background: var(--primary);
-      color: white;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      margin: 0.5rem;
-      transition: 0.2s;
-    }
-    .btn:hover { background: #1e3a8a; }
-    .btn-outline {
-      background: transparent;
-      border: 2px solid white;
-    }
+/* HERO */
+#home{margin-top:70px;position:relative;min-height:90vh;display:flex;align-items:center;background:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80') center/cover no-repeat}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(26,26,46,.85) 0%,rgba(26,26,46,.6) 100%)}
+.hero-content{position:relative;z-index:1;max-width:700px;padding:4rem 5%}
+.hero-content h1{font-size:clamp(2rem,5vw,3.2rem);color:#fff;line-height:1.2;margin-bottom:1.2rem}
+.hero-content h1 span{color:var(--gold)}
+.hero-content p{color:rgba(255,255,255,.85);font-size:1.1rem;line-height:1.7;margin-bottom:2rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--charcoal);padding:.85rem 2rem;border-radius:6px;font-weight:700;text-decoration:none;font-size:1rem;transition:background .2s}
+.btn-primary:hover{background:var(--gold-light)}
+.btn-secondary{border:2px solid #fff;color:#fff;padding:.85rem 2rem;border-radius:6px;font-weight:600;text-decoration:none;font-size:1rem;transition:.2s}
+.btn-secondary:hover{background:rgba(255,255,255,.1)}
 
-    /* ── Features / Why Choose ── */
-    .features {
-      background: var(--dark);
-      color: white;
-      text-align: center;
-    }
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-    .card {
-      background: rgba(255,255,255,0.07);
-      padding: 2rem;
-      border-radius: 12px;
-    }
+/* TRUST BAR */
+.trust-bar{background:var(--charcoal);padding:1.4rem 5%}
+.trust-inner{display:flex;justify-content:space-around;flex-wrap:wrap;gap:1rem}
+.trust-item{display:flex;align-items:center;gap:.6rem;color:#fff;font-size:.9rem;font-weight:500}
+.trust-item i{color:var(--gold);font-size:1.1rem}
 
-    /* ── Testimonials ── */
-    .testimonials {
-      background: var(--light);
-      padding: 5rem 5%;
-      text-align: center;
-    }
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    .quote {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-    .stars { color: #fbbf24; font-size: 1.4rem; margin-bottom: 1rem; }
+/* SECTIONS */
+section{padding:5rem 5%}
+.section-title{text-align:center;margin-bottom:3rem}
+.section-title h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--charcoal);margin-bottom:.5rem}
+.section-title .gold-line{width:60px;height:3px;background:var(--gold);margin:.6rem auto 0}
+.section-title p{color:var(--subtext);margin-top:.8rem;font-size:1rem}
 
-    /* ── Pricing ── */
-    .pricing {
-      padding: 5rem 5%;
-      background: white;
-      text-align: center;
-    }
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-    .plan {
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .plan.popular {
-      border-color: var(--primary);
-      box-shadow: 0 10px 30px rgba(30,64,175,0.15);
-      transform: translateY(-12px);
-    }
-    .plan-header {
-      background: var(--dark);
-      color: white;
-      padding: 2rem 1rem;
-    }
-    .plan-body { padding: 2rem; }
-    .price { font-size: 2.8rem; font-weight: 700; margin: 1rem 0; }
+/* HOW IT WORKS */
+#how-it-works{background:var(--gray)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem}
+.step-card{background:#fff;border-radius:12px;padding:2.5rem 2rem;box-shadow:0 4px 20px rgba(0,0,0,.06);text-align:center;transition:transform .2s}
+.step-card:hover{transform:translateY(-4px)}
+.step-num{font-size:3rem;font-weight:800;color:var(--gold);font-family:'Poppins',sans-serif;line-height:1}
+.step-card h3{font-size:1.1rem;color:var(--charcoal);margin:.8rem 0 .6rem}
+.step-card p{color:var(--subtext);font-size:.95rem;line-height:1.6}
 
-    /* ── Form ── */
-    .quote-form {
-      background: var(--dark);
-      color: white;
-      padding: 5rem 5%;
-      text-align: center;
-    }
-    form {
-      max-width: 700px;
-      margin: 3rem auto 0;
-      display: grid;
-      gap: 1.4rem;
-      grid-template-columns: 1fr 1fr;
-    }
-    form input, form select, form textarea {
-      width: 100%;
-      padding: 1rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    form textarea { grid-column: 1 / -1; height: 140px; }
-    form button {
-      grid-column: 1 / -1;
-      background: var(--primary);
-      color: white;
-      border: none;
-      padding: 1.2rem;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.service-card{background:#fff;border:1px solid #eee;border-radius:12px;padding:2rem;transition:.2s;cursor:default}
+.service-card:hover{border-color:var(--gold);box-shadow:0 4px 20px rgba(201,168,76,.15)}
+.service-icon{font-size:2.2rem;margin-bottom:1rem}
+.service-card h3{font-size:1.05rem;color:var(--charcoal);margin-bottom:.5rem}
+.service-card p{color:var(--subtext);font-size:.9rem;line-height:1.6}
 
-    /* ── Footer ── */
-    footer {
-      background: var(--dark);
-      color: #94a3b8;
-      text-align: center;
-      padding: 3rem 5% 1.5rem;
-      font-size: 0.95rem;
-    }
+/* PRICING */
+#pricing{background:var(--gray)}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;max-width:900px;margin:0 auto}
+.price-card{background:#fff;border-radius:12px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,.06);position:relative;text-align:center}
+.price-card.featured{border:2px solid var(--gold)}
+.popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--charcoal);font-size:.8rem;font-weight:700;padding:.3rem 1rem;border-radius:20px;white-space:nowrap}
+.price-card h3{font-size:1.1rem;color:var(--charcoal);margin-bottom:.5rem}
+.price-card .price{font-size:2rem;font-weight:800;color:var(--gold);font-family:'Poppins',sans-serif;margin:.8rem 0 .4rem}
+.price-card .included{color:var(--subtext);font-size:.9rem;line-height:1.6}
+.pricing-note{text-align:center;color:var(--subtext);margin-top:2rem;font-size:.95rem}
+.pricing-cta{display:flex;justify-content:center;margin-top:1.5rem}
 
-    @media (max-width: 768px) {
-      form { grid-template-columns: 1fr; }
-      .hero { padding: 6rem 5% 4rem; }
-    }
-  </style>
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.about-text h2{font-size:clamp(1.6rem,3vw,2rem);color:var(--charcoal);margin-bottom:.5rem}
+.about-text .gold-line{width:60px;height:3px;background:var(--gold);margin:.6rem 0 1.5rem}
+.about-text p{color:var(--subtext);line-height:1.8;font-size:1rem;margin-bottom:1.5rem}
+.about-points{list-style:none;display:flex;flex-direction:column;gap:.8rem}
+.about-points li{display:flex;align-items:center;gap:.8rem;color:var(--text);font-size:.95rem}
+.about-points li i{color:var(--gold);font-size:1rem;width:20px}
+.about-img{border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.12)}
+.about-img img{width:100%;height:400px;object-fit:cover;display:block}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--gray)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.testimonial-card{background:#fff;border-radius:12px;padding:2rem;border-left:4px solid var(--gold);box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.stars{color:var(--gold);font-size:1rem;margin-bottom:1rem}
+.testimonial-card p{color:var(--subtext);font-size:.95rem;line-height:1.7;font-style:italic;margin-bottom:1rem}
+.reviewer{font-weight:600;color:var(--charcoal);font-size:.9rem}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-form-wrap h2{font-size:1.8rem;color:var(--charcoal);margin-bottom:.4rem}
+.contact-form-wrap .gold-line{width:60px;height:3px;background:var(--gold);margin:.6rem 0 .6rem}
+.contact-form-wrap .sub{color:var(--subtext);margin-bottom:1.8rem;font-size:.95rem}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-weight:600;color:var(--charcoal);margin-bottom:.4rem;font-size:.9rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.75rem 1rem;border:1.5px solid #ddd;border-radius:8px;font-size:.95rem;font-family:'Inter',sans-serif;transition:border .2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.submit-btn{width:100%;background:var(--gold);color:var(--charcoal);border:none;padding:1rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;transition:background .2s}
+.submit-btn:hover{background:var(--gold-light)}
+.thank-you{display:none;background:#f0faf0;border:1px solid #4caf50;border-radius:8px;padding:1.5rem;text-align:center;color:#2e7d32;font-weight:600}
+.contact-info{background:var(--charcoal);border-radius:16px;padding:2.5rem;color:#fff}
+.contact-info h3{font-size:1.3rem;margin-bottom:.5rem}
+.contact-info .gold-line{width:50px;height:3px;background:var(--gold);margin:.6rem 0 1.5rem}
+.contact-info p{color:rgba(255,255,255,.75);font-size:.95rem;line-height:1.7;margin-bottom:2rem}
+.info-items{display:flex;flex-direction:column;gap:1.2rem}
+.info-item{display:flex;align-items:center;gap:1rem}
+.info-item i{color:var(--gold);font-size:1.1rem;width:20px}
+.info-item span{color:rgba(255,255,255,.85);font-size:.95rem}
+
+/* FOOTER */
+footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,.08);padding:3rem 5% 1.5rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
+.footer-brand .logo{display:inline-block;margin-bottom:.8rem;font-size:1.2rem}
+.footer-brand p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.6}
+.footer-col h4{color:#fff;font-size:.95rem;margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.footer-col ul a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem;transition:color .2s}
+.footer-col ul a:hover{color:var(--gold)}
+.social-icons{display:flex;gap:1rem;margin-top:.5rem}
+.social-icons a{color:rgba(255,255,255,.6);font-size:1.2rem;transition:color .2s}
+.social-icons a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.5rem;text-align:center;color:rgba(255,255,255,.4);font-size:.85rem}
+
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .about-img{order:-1}
+}
+</style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="container">
-    <h1>Spotless Homes.<br>Vetted Cleaners.<br>Zero Hassle.</h1>
-    <p>Experience the new standard of home cleaning — top-tier professionals, rigorously vetted, fully insured, and 100% satisfaction guaranteed.</p>
-    <a href="#quote" class="btn">Get Your Free Quote</a>
-    <a href="#how" class="btn btn-outline">See How It Works</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#home"><span>The Clean </span><span>Standard</span></a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Book a Clean</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</header>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#how-it-works" onclick="closeMenu()">How It Works</a>
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#pricing" onclick="closeMenu()">Pricing</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="#contact" class="nav-cta" onclick="closeMenu()">Book a Clean</a>
+  </div>
+</nav>
 
-<section class="features">
-  <div class="container">
-    <h2>Why Choose The Clean Standard?</h2>
-    <div class="features-grid">
-      <div class="card">
-        <h3>✦ Rigorous 5-step vetting</h3>
-        <p>Every cleaner is background-checked & interviewed</p>
+<!-- HERO -->
+<section id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-content fade-in">
+    <h1>Setting the <span>Standard</span> for Cleaner Homes.</h1>
+    <p>The Clean Standard connects [YOUR CITY] homeowners with vetted, professional cleaning contractors. One call. One point of contact. Guaranteed satisfaction.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item"><i class="fas fa-user-check"></i><span>Vetted & Background-Checked Contractors</span></div>
+    <div class="trust-item"><i class="fas fa-shield-alt"></i><span>Insured & Bonded</span></div>
+    <div class="trust-item"><i class="fas fa-star"></i><span>Satisfaction Guaranteed</span></div>
+    <div class="trust-item"><i class="fas fa-calendar-check"></i><span>Easy Online Booking</span></div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+  <div class="section-title fade-in">
+    <h2>How It Works</h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="steps">
+    <div class="step-card fade-in">
+      <div class="step-num">01</div>
+      <h3>Get a Quote</h3>
+      <p>Tell us about your home and we'll give you a fast, flat-rate price with no hidden fees.</p>
+    </div>
+    <div class="step-card fade-in">
+      <div class="step-num">02</div>
+      <h3>We Match You</h3>
+      <p>We assign a vetted, background-checked local cleaning contractor to your job.</p>
+    </div>
+    <div class="step-card fade-in">
+      <div class="step-num">03</div>
+      <h3>Relax</h3>
+      <p>Your cleaner arrives on time. You come home to a spotless house — guaranteed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-title fade-in">
+    <h2>What We Offer</h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">🧹</div>
+      <h3>Standard Clean</h3>
+      <p>Regular maintenance cleaning for any size home. Kitchens, bathrooms, living areas, and bedrooms.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">✨</div>
+      <h3>Deep Clean</h3>
+      <p>A thorough top-to-bottom clean. Perfect for first-time clients or a seasonal refresh.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🏠</div>
+      <h3>Move In / Move Out</h3>
+      <p>Get your space spotless before you move in or leave it perfect when you go.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🔁</div>
+      <h3>Recurring Service</h3>
+      <p>Weekly, bi-weekly, or monthly plans with discounted rates for regular clients.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-title fade-in">
+    <h2>Simple, Flat-Rate Pricing</h2>
+    <div class="gold-line"></div>
+    <p>No hidden fees. No surprises. Just clean homes.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card fade-in">
+      <h3>Standard Clean</h3>
+      <div class="price">From $120</div>
+      <p class="included">Up to 3 bed / 2 bath home, all main living areas included.</p>
+    </div>
+    <div class="price-card featured fade-in">
+      <div class="popular-badge">Most Popular</div>
+      <h3>Deep Clean</h3>
+      <div class="price">From $250</div>
+      <p class="included">Full home, detailed scrub of all surfaces and hard-to-reach areas.</p>
+    </div>
+    <div class="price-card fade-in">
+      <h3>Move In / Move Out</h3>
+      <div class="price">From $300</div>
+      <p class="included">Empty home, full top-to-bottom clean ready for the next chapter.</p>
+    </div>
+  </div>
+  <p class="pricing-note">Recurring clients save 10–15%. Contact us for a custom quote.</p>
+  <div class="pricing-cta"><a href="#contact" class="btn-primary">Get My Exact Quote</a></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <h2>Why The Clean Standard?</h2>
+      <div class="gold-line"></div>
+      <p>We started The Clean Standard because finding a reliable cleaner shouldn't be stressful. We do the vetting, the scheduling, and the follow-up — so you don't have to. Every contractor in our network is interviewed, reference-checked, and held to our standard. If you're ever unhappy, we make it right. That's The Clean Standard promise.</p>
+      <ul class="about-points">
+        <li><i class="fas fa-check"></i> Every contractor is personally vetted by us</li>
+        <li><i class="fas fa-check"></i> One point of contact for all your needs</li>
+        <li><i class="fas fa-check"></i> Easy rescheduling and satisfaction guarantee</li>
+      </ul>
+    </div>
+    <div class="about-img fade-in">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Clean modern living room"/>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-title fade-in">
+    <h2>What Our Clients Say</h2>
+    <div class="gold-line"></div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card fade-in">
+      <div class="stars">★★★★★</div>
+      <p>"The Clean Standard made the whole process so easy. I booked online, they sent someone the next day, and my house has never looked better."</p>
+      <div class="reviewer">Sarah M. — Riverside neighborhood <span style="color:#999;font-weight:400;font-size:.8rem">(placeholder)</span></div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <div class="stars">★★★★★</div>
+      <p>"I've tried other cleaning services but nothing compares. They were on time, thorough, and I love that I only have to deal with one person for everything."</p>
+      <div class="reviewer">James T. — Oakwood District <span style="color:#999;font-weight:400;font-size:.8rem">(placeholder)</span></div>
+    </div>
+    <div class="testimonial-card fade-in">
+      <div class="stars">★★★★★</div>
+      <p>"Used them for a move-out clean and got my full deposit back. Absolutely worth every penny — I'll be using The Clean Standard at my new place too."</p>
+      <div class="reviewer">Priya L. — Northside <span style="color:#999;font-weight:400;font-size:.8rem">(placeholder)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-form-wrap fade-in">
+      <h2>Get a Free Quote</h2>
+      <div class="gold-line"></div>
+      <p class="sub">Fill out the form below and we'll get back to you within 1 hour.</p>
+      <form id="quoteForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="name" placeholder="Jane Smith"/>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="phone" placeholder="(555) 000-0000"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" id="email" placeholder="jane@email.com"/>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Home Size *</label>
+            <select id="size">
+              <option value="">Select size...</option>
+              <option>Studio</option>
+              <option>1 Bedroom</option>
+              <option>2 Bedrooms</option>
+              <option>3 Bedrooms</option>
+              <option>4+ Bedrooms</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Type of Clean *</label>
+            <select id="type">
+              <option value="">Select type...</option>
+              <option>Standard Clean</option>
+              <option>Deep Clean</option>
+              <option>Move In / Move Out</option>
+              <option>Recurring Service</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Preferred Date *</label>
+          <input type="date" id="date"/>
+        </div>
+        <div class="form-group">
+          <label>Additional Notes</label>
+          <textarea id="notes" placeholder="Any special instructions, pets, access info..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Request My Free Quote</button>
+      </form>
+      <div class="thank-you" id="thankYou">
+        <i class="fas fa-check-circle" style="font-size:2rem;color:#4caf50;margin-bottom:.8rem;display:block"></i>
+        Thanks! We'll reach out within the hour to confirm your booking with The Clean Standard.
       </div>
-      <div class="card">
-        <h3>🛡️ Up to $1M insured & bonded</h3>
-        <p>Your home and belongings are protected</p>
-      </div>
-      <div class="card">
-        <h3>🌿 Eco-friendly supplies on request</h3>
-        <p>Healthier for your family & the planet</p>
-      </div>
-      <div class="card">
-        <h3>100% Satisfaction Guarantee</h3>
-        <p>Not happy? We re-clean for free.</p>
+    </div>
+    <div class="contact-info fade-in">
+      <h3>Get In Touch</h3>
+      <div class="gold-line"></div>
+      <p>We're here to make your home cleaner and your life easier. Reach out any time — we respond fast.</p>
+      <div class="info-items">
+        <div class="info-item"><i class="fas fa-phone"></i><span>[YOUR PHONE NUMBER]</span></div>
+        <div class="info-item"><i class="fas fa-envelope"></i><span>[YOUR EMAIL ADDRESS]</span></div>
+        <div class="info-item"><i class="fas fa-map-marker-alt"></i><span>[YOUR CITY, STATE]</span></div>
+        <div class="info-item"><i class="fas fa-clock"></i><span>Mon–Sat: 8am – 7pm</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="testimonials">
-  <div class="container">
-    <h2>Loved by Hundreds of Homes</h2>
-    <p style="margin:1rem 0 3rem; opacity:0.8;">Don't just take our word for it. Here's what happy customers say.</p>
-
-    <div class="testimonial-grid">
-      <div class="quote">
-        <div class="stars">★★★★★</div>
-        <p>"The easiest cleaning service I've ever booked. Team arrived on time, extremely professional, left my apartment looking brand new. Highly recommend the deep clean!"</p>
-        <p><strong>Sarah Jenkins</strong> – Downtown</p>
-      </div>
-
-      <div class="quote">
-        <div class="stars">★★★★★</div>
-        <p>"Been using their bi-weekly service for 6 months. Consistent quality every time. It's a relief to come home to a spotless house on Fridays."</p>
-        <p><strong>Michael Chen</strong> – Westside</p>
-      </div>
-
-      <div class="quote">
-        <div class="stars">★★★★★</div>
-        <p>"Booked for move-out clean to get my deposit back. Landlord was amazed — they removed stains I thought were permanent. Worth every penny."</p>
-        <p><strong>Emma Roberts</strong> – North Hills</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="pricing">
-  <div class="container">
-    <h2>Transparent Pricing</h2>
-    <p>Simple, upfront prices based on home size and cleaning depth. No hidden fees.</p>
-
-    <div class="plans">
-      <div class="plan">
-        <div class="plan-header">
-          <h3>Standard Clean</h3>
-          <p>For regular maintenance</p>
-        </div>
-        <div class="plan-body">
-          <div class="price">From $120</div>
-          <ul style="list-style:none; text-align:left; margin:1.5rem 0;">
-            <li>✓ Dusting all surfaces</li>
-            <li>✓ Vacuum & mop floors</li>
-            <li>✓ Bathroom & kitchen sanitation</li>
-            <li>✓ Trash removal</li>
-          </ul>
-          <a href="#quote" class="btn">Book Now</a>
-        </div>
-      </div>
-
-      <div class="plan popular">
-        <div class="plan-header">
-          <h3>Deep Clean</h3>
-          <p>Most Popular • Thorough refresh</p>
-        </div>
-        <div class="plan-body">
-          <div class="price">From $250</div>
-          <ul style="list-style:none; text-align:left; margin:1.5rem 0;">
-            <li>✓ Everything in Standard</li>
-            <li>✓ Baseboards, doors, window sills</li>
-            <li>✓ Heavy bathroom scrub</li>
-            <li>✓ Inside fridge/oven</li>
-            <li>✓ Under furniture</li>
-          </ul>
-          <a href="#quote" class="btn">Book Now</a>
-        </div>
-      </div>
-
-      <div class="plan">
-        <div class="plan-header">
-          <h3>Move In / Move Out</h3>
-          <p>For empty homes</p>
-        </div>
-        <div class="plan-body">
-          <div class="price">From $300</div>
-          <ul style="list-style:none; text-align:left; margin:1.5rem 0;">
-            <li>✓ Everything in Deep Clean</li>
-            <li>✓ Inside cabinets & appliances</li>
-            <li>✓ Spot clean walls</li>
-            <li>✓ Closet wipe down</li>
-          </ul>
-          <a href="#quote" class="btn">Book Now</a>
-        </div>
-      </div>
-    </div>
-
-    <p style="margin-top:2rem; font-size:1.1rem;">Save 10–15% with recurring weekly/bi-weekly/monthly service!</p>
-  </div>
-</section>
-
-<section id="quote" class="quote-form">
-  <div class="container">
-    <h2>Get a Free Quote</h2>
-    <p>Fill out the form below — we'll respond within 2 hours with a custom quote.</p>
-
-    <form action="https://formsubmit.co/your@email.com" method="POST">  <!-- ← replace with your real email or form backend -->
-      <input type="text"    name="name"        placeholder="Full Name"        required>
-      <input type="tel"     name="phone"       placeholder="Phone Number"     required>
-      <input type="email"   name="email"       placeholder="Email Address"     required style="grid-column:1/-1;">
-      <select name="size" required>
-        <option value="">Select home size</option>
-        <option>Studio / 1 bed</option>
-        <option>2 bed / 2 bath</option>
-        <option>3+ bed</option>
-      </select>
-      <select name="type" required>
-        <option value="">Select type of clean</option>
-        <option>Standard</option>
-        <option>Deep Clean</option>
-        <option>Move In/Out</option>
-        <option>Recurring</option>
-      </select>
-      <input type="date" name="date" placeholder="Preferred Date" required style="grid-column:1/-1;">
-      <textarea name="notes" placeholder="Additional Notes (pets? special instructions?)"></textarea>
-      <button type="submit">Request My Free Quote</button>
-    </form>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <p><strong>The Clean Standard</strong><br>
-    123 Clean Street, Suite 100, San Francisco, CA 94105<br>
-    (555) 123-4567 • hello@thecleanstandard.com</p>
-
-    <p style="margin-top:2rem; font-size:0.9rem;">
-      © 2026 The Clean Standard Agency. All rights reserved.<br>
-      Privacy Policy • Terms of Service • Made with ❤️
-    </p>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="#home"><span>The Clean </span><span>Standard</span></a>
+      <p>Setting the Standard for Cleaner Homes. Connecting homeowners with vetted, professional cleaning contractors.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 The Clean Standard. All rights reserved. | Independent contractor referral agency.
   </div>
 </footer>
 
+<script>
+// Mobile menu
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+
+// Scroll fade-in
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+// Form validation
+document.getElementById('quoteForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const size=document.getElementById('size').value;
+  const type=document.getElementById('type').value;
+  const date=document.getElementById('date').value;
+  const emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!name||!phone||!email||!size||!type||!date){alert('Please fill in all required fields.');return}
+  if(!emailRe.test(email)){alert('Please enter a valid email address.');return}
+  this.style.display='none';
+  document.getElementById('thankYou').style.display='block';
+});
+
+// Set min date to today
+const d=new Date();
+const pad=n=>String(n).padStart(2,'0');
+document.getElementById('date').min=`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+</script>
 </body>
 </html>
