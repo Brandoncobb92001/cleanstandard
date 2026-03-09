@@ -717,7 +717,7 @@ footer{
           <li><i class="fas fa-check"></i> Kitchen wipe down</li>
           <li><i class="fas fa-check"></i> Take out trash</li>
         </ul>
-        <a href="https://buy.stripe.com/aFa6oG5Su4aj6yYaYddIA02" class="btn-book" target="_blank" rel="noopener noreferrer">Book Now</a>
+        <a href="#contact" class="btn-book">Book Now</a>
       </div>
     </div>
     <div class="price-card featured fade-in">
@@ -733,7 +733,7 @@ footer{
           <li><i class="fas fa-check"></i> Heavy scrub of bathrooms</li>
           <li><i class="fas fa-check"></i> Under furniture</li>
         </ul>
-        <a href="https://buy.stripe.com/4gM5kC94GeOX0aA6HXdIA01" class="btn-book" target="_blank" rel="noopener noreferrer">Book Now</a>
+        <a href="#contact" class="btn-book">Book Now</a>
       </div>
     </div>
     <div class="price-card fade-in">
@@ -748,7 +748,7 @@ footer{
           <li><i class="fas fa-check"></i> Spot clean walls</li>
           <li><i class="fas fa-check"></i> Closet wipe down</li>
         </ul>
-        <a href="https://buy.stripe.com/dRmcN45Su36f4qQ4zPdIA03" class="btn-book" target="_blank" rel="noopener noreferrer">Book Now</a>
+        <a href="#contact" class="btn-book">Book Now</a>
       </div>
     </div>
   </div>
@@ -937,7 +937,7 @@ const obs=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 
-document.getElementById('quoteForm').addEventListener('submit',function(e){
+document.getElementById('quoteForm').addEventListener('submit',async function(e){
   e.preventDefault();
   const fields=[
     {el:document.getElementById('name'),val:document.getElementById('name').value.trim()},
@@ -955,10 +955,18 @@ document.getElementById('quoteForm').addEventListener('submit',function(e){
   if(!valid){fields.find(f=>f.el.classList.contains('error')).el.focus();return}
   submitBtn.textContent='Sending...';
   submitBtn.disabled=true;
-  setTimeout(()=>{
-    this.style.display='none';
-    document.getElementById('thankYou').style.display='block';
-  },800);
+  const apiBase=(window.CLEANSTANDARD_API_URL||'').replace(/\/$/,'');
+  const payload={name:fields[0].val,phone:fields[1].val,email:fields[2].val,size:fields[3].val,type:fields[4].val,date:fields[5].val,notes:document.getElementById('notes').value.trim()};
+  try{
+    const res=await fetch(apiBase+'/api/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const data=await res.json().catch(()=>({}));
+    if(res.ok&&data.success){this.style.display='none';document.getElementById('thankYou').style.display='block';return}
+    throw new Error(data.error||'Request failed');
+  }catch(err){
+    submitBtn.textContent='Request My Free Quote';
+    submitBtn.disabled=false;
+    alert('Could not send your quote. Please call us at (617) 863-7359 or email Bostonscleanstandard@gmail.com.');
+  }
 });
 
 const d=new Date();
