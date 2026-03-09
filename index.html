@@ -955,12 +955,11 @@ document.getElementById('quoteForm').addEventListener('submit',async function(e)
   if(!valid){fields.find(f=>f.el.classList.contains('error')).el.focus();return}
   submitBtn.textContent='Sending...';
   submitBtn.disabled=true;
-  const apiBase=(window.CLEANSTANDARD_API_URL||'').replace(/\/$/,'');
-  const payload={name:fields[0].val,phone:fields[1].val,email:fields[2].val,size:fields[3].val,type:fields[4].val,date:fields[5].val,notes:document.getElementById('notes').value.trim()};
+  const payload={name:fields[0].val,phone:fields[1].val,email:fields[2].val,homeSize:fields[3].val,typeOfClean:fields[4].val,preferredDate:fields[5].val,notes:document.getElementById('notes').value.trim()};
   try{
-    const res=await fetch(apiBase+'/api/quote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const res=await fetch('https://formspree.io/f/xojkjjjb',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     const data=await res.json().catch(()=>({}));
-    if(res.ok&&data.success){this.style.display='none';document.getElementById('thankYou').style.display='block';return}
+    if(res.ok){this.style.display='none';document.getElementById('thankYou').style.display='block';return}
     throw new Error(data.error||'Request failed');
   }catch(err){
     submitBtn.textContent='Request My Free Quote';
