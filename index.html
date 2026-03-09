@@ -513,8 +513,8 @@ footer{
   .testimonial-card{padding:1.5rem 1.25rem}
   .testimonial-card p{font-size:.95rem}
   #contact{padding:3rem 1rem 4rem}
-  .contact-grid{gap:2rem;max-width:100%;padding:0}
-  .contact-form-wrap{width:100%;padding:0;text-align:center}
+  .contact-grid{gap:0;max-width:100%;padding:0;display:flex;flex-direction:column}
+  .contact-form-wrap{width:100%;padding:0;padding-bottom:2.5rem;margin-bottom:2.5rem;border-bottom:1px solid var(--border);text-align:center}
   .contact-form-wrap .eyebrow{margin-bottom:.4rem}
   .contact-form-wrap h2{font-size:clamp(1.5rem,5vw,1.75rem);margin-bottom:.35rem}
   .contact-form-wrap .gold-line{margin:.5rem auto .6rem}
@@ -527,7 +527,7 @@ footer{
   .form-row{grid-template-columns:1fr;gap:0}
   .submit-btn{min-height:52px;width:100%;margin-top:.25rem}
   .thank-you{padding:1.25rem 1rem;font-size:.95rem;margin-top:0}
-  .contact-info{width:100%;max-width:100%;margin:0;padding:1.75rem 1.25rem;box-sizing:border-box}
+  .contact-info{width:100%;max-width:100%;margin:0;padding:2rem 1.25rem 0;box-sizing:border-box}
   .contact-info h3{font-size:1.2rem;margin-bottom:.4rem}
   .contact-info .gold-line{margin:.5rem auto 1.25rem}
   .contact-info p{font-size:.9rem;margin-bottom:1.5rem;padding:0}
@@ -550,10 +550,11 @@ footer{
   .price-features li{font-size:.95rem}
   .about-img img{height:240px}
   #contact{padding:2.5rem .75rem 3.5rem}
+  .contact-form-wrap{padding-bottom:2rem;margin-bottom:2rem}
   .contact-form-wrap .sub{font-size:.9rem}
   .form-group input,.form-group select,.form-group textarea{padding:.7rem .85rem}
   .form-group select{padding-right:2.25rem}
-  .contact-info{padding:1.5rem 1rem}
+  .contact-info{padding:2rem 1rem 0}
   .info-item{font-size:.85rem}
   footer{padding:3rem 4% 1.5rem}
 }
